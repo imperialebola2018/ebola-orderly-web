@@ -51,12 +51,9 @@ orderly:
   ## you need.  The components repo, image and tag will be assembled as
   ## <repo>/<name>:<tag> for the full docker image reference.
   image:
-    # repo: imperialebola2018
-    # name: ebola-orderly
-    # tag: latest
-    repo: vimc
-    name: orderly.server
-    tag: master
+    repo: imperialebola2018
+    name: ebola-orderly
+    tag: latest
 
 ## Api and Website configuration
 web:
