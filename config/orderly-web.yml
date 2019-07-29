@@ -58,10 +58,10 @@ orderly:
     tag: latest
   initial:
     source: clone
-    url: git@github.com:richfitz/ebola-outputs
+    url: git@github.com:imperialebola2018/ebola-outputs
   ssh:
-    public: VAULT:secret/ebola/outputs/deploy-key2:public
-    private: VAULT:secret/ebola/outputs/deploy-key2:private
+    public: VAULT:secret/ebola/outputs/deploy-key:public
+    private: VAULT:secret/ebola/outputs/deploy-key:private
 
 ## Api and Website configuration
 web:
@@ -133,8 +133,8 @@ proxy:
     certificate: VAULT:secret/ebola/proxy/ssl_certificate:value
     key: VAULT:secret/ebola/proxy/ssl_private_key:value
   hostname: ebola2018.dide.ic.ac.uk
-  port_http: 1080
-  port_https: 10443
+  port_http: 80
+  port_https: 443
   image:
     repo: vimc
     name: orderly-web-proxy
