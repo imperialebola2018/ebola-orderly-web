@@ -58,10 +58,10 @@ orderly:
     tag: latest
   initial:
     source: clone
-    url: git@github.com:imperialebola2018/ebola-outputs
+    url: git@github.com:richfitz/ebola-outputs
   ssh:
-    public: VAULT:secret/ebola/outputs/deploy-key:public
-    private: VAULT:secret/ebola/outputs/deploy-key:private
+    public: VAULT:secret/ebola/outputs/deploy-key2:public
+    private: VAULT:secret/ebola/outputs/deploy-key2:private
 
 ## Api and Website configuration
 web:
