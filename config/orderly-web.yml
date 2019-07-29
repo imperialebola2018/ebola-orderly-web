@@ -1,7 +1,7 @@
 vault:
   ## Address of the vault server.  This should be a string if it is
   ## present.
-  addr: https://ebola2018.dide.ic.ac.uk:8200
+  addr: https://vault.dide.ic.ac.uk:8200
   auth:
     ## Authentication type - must be either "token" or the name of a
     ## supported authentication method.  These seem to be poorly
@@ -13,6 +13,8 @@ vault:
     ##
     ##     azure, github, gcp, kubernetes, ldap, mfa, okta
     method: github
+    args:
+      mount_point: github-ebola
 
 ## Prefix for container names; we'll use {container_prefix}_(orderly,web)
 ##
@@ -54,6 +56,12 @@ orderly:
     repo: imperialebola2018
     name: ebola-orderly
     tag: latest
+  initial:
+    source: clone
+    url: git@github.com:imperialebola2018/ebola-outputs
+  ssh:
+    public: VAULT:secret/ebola/outputs/deploy-key:public
+    private: VAULT:secret/ebola/outputs/deploy-key:private
 
 ## Api and Website configuration
 web:
@@ -93,10 +101,10 @@ web:
   ## Authentication configuration
   auth:
     github_org: imperialebola2018
-    github_team: ""
+    github_team: core
     github_oauth:
-      id: VAULT:secret/github/id:value
-      secret: VAULT:secret/github/secret:value
+      id: VAULT:secret/ebola/github/id:value
+      secret: VAULT:secret/ebola/github/secret:value
     fine_grained: false
     montagu: false
   ## Optional sass variables to override default styles. Should be a
@@ -122,8 +130,8 @@ proxy:
     ## 2. certificates from strings - include the strings directly in
     ##    the keys here, or more likely use a VAULT:<path>:<key>
     ##    string to extract them from the vault.
-    certificate: VAULT:secret/proxy/ssl_certificate:value
-    key: VAULT:secret/proxy/ssl_private_key:value
+    certificate: VAULT:secret/ebola/proxy/ssl_certificate:value
+    key: VAULT:secret/ebola/proxy/ssl_private_key:value
   hostname: ebola2018.dide.ic.ac.uk
   port_http: 1080
   port_https: 10443
