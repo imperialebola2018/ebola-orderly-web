@@ -1,0 +1,18 @@
+web:
+  url: https://ebola2018.dide.ic.ac.uk:1443
+  name: Outputs (TESTING)
+  auth:
+    github_org: imperialebola2018
+    github_team: core
+    github_oauth:
+      id: VAULT:secret/ebola/oauth/testing:id
+      secret: VAULT:secret/ebola/oauth/testing:secret
+
+proxy:
+  hostname: ebola2018.dide.ic.ac.uk
+  port_http: 180
+  port_https: 1443
+  image:
+    repo: vimc
+    name: orderly-web-proxy
+    tag: master
