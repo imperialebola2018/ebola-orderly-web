@@ -103,8 +103,8 @@ web:
     github_org: imperialebola2018
     github_team: core
     github_oauth:
-      id: VAULT:secret/ebola/github/id:value
-      secret: VAULT:secret/ebola/github/secret:value
+      id: VAULT:secret/ebola/oauth/real:id
+      secret: VAULT:secret/ebola/oauth/real:secret
     fine_grained: false
     montagu: false
   ## Optional sass variables to override default styles. Should be a
