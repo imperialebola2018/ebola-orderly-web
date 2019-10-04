@@ -5,10 +5,7 @@
 First, install the deploy tool (this will be installable from the python package repository soon)
 
 ```
-git clone https://github.com/vimc/orderly-web-deploy
-cd orderly-web-deploy
-pip3 install -r requirements.txt
-python3 setup.py install --user
+pip3 install --user orderly-web
 ```
 
 Ensure that the path that the script is copied into is in your path (on Linux, most likely `~/.local/bin`, on OSX `~/Library/Python/<version>/bin`
@@ -19,11 +16,17 @@ Ensure that the path that the script is copied into is in your path (on Linux, m
 orderly-web start config
 ```
 
-Preparing the volume
+### Upgrading
+
+It is possible that the `orderly-web` deploy scripts should be updated
 
 ```
-docker run -it --rm -v ${PWD}/.ssh:/root/.ssh:ro -v ebola_orderly_volume:/orderly ubuntu
-apt-get update && apt-get install -y git
-git clone git@github.com:imperialebola2018/ebola-outputs /orderly
-git -C /orderly checkout mrc-328
+pip3 install --user --upgrade orderly-web
+```
+
+Then redeploy with:
+
+```
+orderly-web stop config
+orderly-web start --pull config
 ```
